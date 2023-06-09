@@ -1,7 +1,6 @@
 const Hapi = require("@hapi/hapi");
 const routes = require('./src/config/routes');
-// require('dotenv').config();
-require('./src/database/index')
+require('./src/database/index');
 
 
 const server = Hapi.server({
