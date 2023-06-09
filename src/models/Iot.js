@@ -3,8 +3,8 @@ const { Model, DataTypes } = require('sequelize');
 class Iot extends Model {
     static init(sequelize) {
         super.init({
-            temperature: DataTypes.INTEGER,
-            moustre: DataTypes.INTEGER,
+            temperature: DataTypes.DECIMAL,
+            moustre: DataTypes.DECIMAL,
             dateInsert: DataTypes.DATE
         }, {
             sequelize,

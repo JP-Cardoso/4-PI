@@ -11,11 +11,11 @@ module.exports = {
         primaryKey: true
       },
       temperature: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.DECIMAL,
         allowNull: false
       },
       moustre: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.DECIMAL,
         allowNull: false
       },
       dateInsert: {
