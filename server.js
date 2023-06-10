@@ -4,13 +4,14 @@ require('./src/database/index');
 
 
 const server = Hapi.server({
-    port: 8000,
+    port: 8005,
     host: "localhost"
 });
 
 const plugins = [
     {
         plugin: routes, options: {
+            // /home/joao/Área de Trabalho/PI/4-PI/src
             routesBaseDir: "./src/api"
         }
     }

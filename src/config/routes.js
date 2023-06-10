@@ -3,10 +3,10 @@ const klawSync = require('klaw-sync');
 const plugins = {
     name: 'routes',
     version: '1',
-    register: async(server, options) => {
+    register: async (server, options) => {
         const routes = [];
 
-        klawSync(options.routesBaseDir, {nodir: true}).filter((file) => {
+        klawSync(options.routesBaseDir, { nodir: true }).filter((file) => {
             return (file.path.indexOf('-Routes.js') > 1);
         }).forEach((_file) => {
             const routeObject = {

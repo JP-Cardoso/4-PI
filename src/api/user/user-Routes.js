@@ -2,13 +2,13 @@ const { create, findAll, getById, updated, remove } = require('./user-Controller
 const schema = require('./user-Schema')
 
 const plugin = {
-    name: 'client-v1-route',
+    name: 'user-v1-route',
     verion: 1,
     register: (server => {
         server.route([
             {
                 method: "POST",
-                path: "/clients",
+                path: "/users",
                 options: {
                     validate: schema.createdUser,
                     handler: create
@@ -16,7 +16,7 @@ const plugin = {
             },
             {
                 method: "GET",
-                path: "/clients",
+                path: "/users",
                 options: {
                     // validate: schema.findAll,
                     handler: findAll
@@ -24,7 +24,7 @@ const plugin = {
             },
             {
                 method: "GET",
-                path: "/client/{id}",
+                path: "/user/{id}",
                 options: {
                     validate: schema.getUserById,
                     handler: getById
@@ -32,7 +32,7 @@ const plugin = {
             },
             {
                 method: "PUT",
-                path: "/client/{id}",
+                path: "/user/{id}",
                 options: {
                     validate: schema.updatedUserById,
                     handler: updated
@@ -40,7 +40,7 @@ const plugin = {
             },
             {
                 method: "DELETE",
-                path: "/client/{id}",
+                path: "/user/{id}",
                 options: {
                     validate: schema.removedUserById,
                     handler: remove
