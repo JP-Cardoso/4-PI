@@ -20,6 +20,20 @@ const create = async (request, h) => {
 
 };
 
+const login = async (request, h) => {
+    try {
+        const payload = request.payload;
+        const item = {
+            password: payload.password,
+            cpf: payload.cpf
+        };
+        const result = await UserBusiness.login(item);
+        return h.response(result).code(201)
+    } catch (error) {
+        return h.response(error.message).code(500);
+    }
+}
+
 const findAll = async (request, h) => {
     try {
         const result = await UserBusiness.findAll();
@@ -70,4 +84,4 @@ const remove = async (request, h) => {
         }
 };
 
-module.exports = { create, findAll, getById, updated, remove }
+module.exports = { create, findAll, getById, updated, remove, login}

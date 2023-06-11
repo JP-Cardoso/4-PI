@@ -10,7 +10,7 @@ async function getDataFromThingSpeak(url) {
             moustre: parseFloat(item.field2),
             dateInsert: item.created_at
         }))
-        console.log('Dados obtidos', obj);
+        // console.log('Dados obtidos', obj);
         return obj
     } catch (error) {
         console.error('Erro ao obter dados: ', error.message);
@@ -33,7 +33,6 @@ function fetchEvery15minutes() {
 function insertDataApi(data) {
     console.log('chegou',data);
     data.forEach((item) => {
-        console.log('for each',item);
         axios.post('http://localhost:8005/data-iot', item);
     })
    

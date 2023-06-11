@@ -1,4 +1,4 @@
-const { create, findAll, getById, updated, remove } = require('./user-Controller');
+const { create, findAll, getById, updated, remove, login } = require('./user-Controller');
 const schema = require('./user-Schema')
 
 const plugin = {
@@ -12,6 +12,14 @@ const plugin = {
                 options: {
                     validate: schema.createdUser,
                     handler: create
+                }
+            },
+            {
+                method: "POST",
+                path: "/auth/user",
+                options: {
+                    validate: schema.auth,
+                    handler: login
                 }
             },
             {

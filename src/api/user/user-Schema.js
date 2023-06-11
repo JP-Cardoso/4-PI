@@ -11,6 +11,17 @@ const createdUser = {
     })
 };
 
+const auth = {
+    payload: Joi.object({
+        name: Joi
+            .string().min(3).uppercase(),
+        password: Joi
+            .string().min(4).required().trim(),
+        cpf: Joi
+            .string().max(11).trim().required()
+    })
+}
+
 const getUserById = {
     params: Joi.object({
         id: Joi
@@ -41,4 +52,4 @@ const removedUserById = {
 };
 
 
-module.exports = { createdUser, getUserById, updatedUserById, removedUserById }
+module.exports = { createdUser, getUserById, updatedUserById, removedUserById, auth }

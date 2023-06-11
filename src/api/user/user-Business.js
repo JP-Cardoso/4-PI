@@ -20,4 +20,8 @@ const remove = async (id) => {
     return UserRepository.remove(id)
 };
 
-module.exports = { create, findAll, getById, updated, remove }
+const login = async (item) => {
+    return UserRepository.login(item)
+}
+
+module.exports = { create, findAll, getById, updated, remove, login }
