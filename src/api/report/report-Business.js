@@ -4,4 +4,8 @@ const data = async () => {
     return await reportRepository.data();
 };
 
-module.exports = {data}
+const reports = async () => {
+    return await reportRepository.report();
+};
+
+module.exports = {data, reports}

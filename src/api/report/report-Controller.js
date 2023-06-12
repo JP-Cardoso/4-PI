@@ -1,6 +1,6 @@
 const reportBusiness = require('./report-Business');
 
-const data = async(request, h) => {
+const reportAnalitic = async(request, h) => {
     try {
         const result = await reportBusiness.data();
         console.log(result);
@@ -10,4 +10,13 @@ const data = async(request, h) => {
     }
 };
 
-module.exports = {data}
+const report = async(request, h) => {
+    try {
+        const result = await reportBusiness.reports();
+        // console.log(result);
+    } catch (error) {
+        console.error();
+    }
+};
+
+module.exports = {reportAnalitic, report}

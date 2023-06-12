@@ -5,7 +5,10 @@ require('./src/database/index');
 
 const server = Hapi.server({
     port: 8005,
-    host: "localhost"
+    host: "localhost",
+    routes: {
+        cors: true
+    }
 });
 
 const plugins = [

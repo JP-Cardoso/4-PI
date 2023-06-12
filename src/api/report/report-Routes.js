@@ -1,4 +1,4 @@
-const {data} = require('./report-Controller');
+const {reportAnalitic, report} = require('./report-Controller');
 const schema = require('./report-Schema');
 
 const plugin = {
@@ -8,10 +8,16 @@ const plugin = {
         server.route([
             {
                 method: "GET",
-                path: "/report",
+                path: "/report-analitic",
                 options: {
-                    // validate: schema.insertDataPayload,
-                    handler: data
+                    handler: reportAnalitic
+                }
+            },
+            {
+                method: 'GET',
+                path: '/reports',
+                options: {
+                    handler: report
                 }
             }
         ]);
