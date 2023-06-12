@@ -13,8 +13,6 @@ const createdUser = {
 
 const auth = {
     payload: Joi.object({
-        name: Joi
-            .string().min(3).uppercase(),
         password: Joi
             .string().min(4).required().trim(),
         cpf: Joi
