@@ -13,7 +13,7 @@ const reportAnalitic = async(request, h) => {
 const report = async(request, h) => {
     try {
         const result = await reportBusiness.reports();
-        // console.log(result);
+        return h.response(result)
     } catch (error) {
         console.error();
     }

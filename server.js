@@ -7,7 +7,11 @@ const server = Hapi.server({
     port: 8005,
     host: "localhost",
     routes: {
-        cors: true
+        cors: {
+            origin: ['*'], // an array of origins or 'ignore'
+            headers: ['Accept', 'Authorization', 'Content-Type', 'If-None-Match', 'Accept-language'], // all default apart from Accept-language
+            additionalHeaders: ['cache-control', 'x-requested-with', 'Access-Control-Allow-Origin']
+        }
     }
 });
 

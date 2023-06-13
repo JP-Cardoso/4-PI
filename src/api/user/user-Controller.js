@@ -28,6 +28,7 @@ const login = async (request, h) => {
             cpf: payload.cpf
         };
         const result = await UserBusiness.login(item);
+        console.log(payload);
         return h.response(result).code(201)
     } catch (error) {
         return h.response(error.message).code(500);

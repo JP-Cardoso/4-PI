@@ -55,7 +55,7 @@ const login = async (item) => {
     } else {
         token = await genToken(result)
     }
-    return token;
+    return {result, token};
 };
 
 module.exports = { save, findAll, getById, updated, remove, login }

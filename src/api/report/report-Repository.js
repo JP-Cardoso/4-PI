@@ -10,7 +10,7 @@ const data = async () => {
 
 const report = async () => {
     const result = await IotModel.findAll({limit: 100, raw: true});
-    console.log(result);
+    return result
 }
 
 module.exports = {data, report}
