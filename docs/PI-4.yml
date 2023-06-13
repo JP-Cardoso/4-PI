@@ -96,13 +96,15 @@ paths:
         required: true
         content:
           application/json:
-            schema: "#/components/schemas/AuthRequest"
+            schema: 
+              $ref: "#/components/schemas/AuthRequest"
       responses:
         "200": 
           description: Successfully generated authentication token
           content:
             application/json:
-              schema: "#/components/schemas/AuthResponse"
+              schema: 
+                $ref: "#/components/schemas/AuthRsponse"
           
   /iot:
     post:
@@ -134,7 +136,30 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/IoTResponse"
-  /reports
+  /report-analitic:
+    get:
+      tags: 
+       - "Reports"
+      summary: Analysis report
+      responses:
+       "200":
+          description: Retuns of analyzed data
+          content: 
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ReportAnaliticResponse" 
+  /reports:
+    get:
+      tags: 
+        - "Reports"
+      summary: Analysis report
+      responses:
+        "200":
+          description: Returns os analyzed data
+          content: 
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ReportsResponse"
   
 components:
   schemas:
@@ -150,9 +175,7 @@ components:
         password:
           type: string
           format: password
-        Role:
-          type: string
-          example: adm ou user
+       
     UserResponse:
       type: object
       properties:
@@ -168,9 +191,7 @@ components:
         password:
           type: string
           format: password
-        Role:
-          type: string
-          example: adm ou user
+      
     AuthRequest:
      type: object
      properties:
@@ -179,7 +200,7 @@ components:
           example: "30180901010"
         password:
           type: string
-          example: "123456789"      
+          example: "123456789"             
     AuthResponse:
       type: object
       properties:
@@ -189,6 +210,9 @@ components:
         password:
           type: string
           example: "123456789"  
+        token:
+          type: string
+          example: "JWT": "token_jwt"
     IoTRequest:
       type: object
       properties:
@@ -221,3 +245,36 @@ components:
         idInsert:
           type: number
           example: 1
+    ReportAnaliticResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          temperature: 
+            type: string
+            example: "25.5"
+          temperatureStandardDeviation:
+            type: string
+            example: "2.5"
+          umidade:
+            type: string
+            example: "50.6"
+          umidityStandardDeviation:
+            type: string
+            example: "1.5"
+    ReportsResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          dataInsert:
+            type: string
+            format: date-time
+            example: "2023-05-01T14:15:20Z"
+          temperature:
+            type: string
+            example: "25"
+          mouistre:
+            type: string
+            example: "50"
+

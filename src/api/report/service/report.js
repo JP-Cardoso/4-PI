@@ -21,6 +21,8 @@ function analitcTemperature(data) {
     return { media, desvioPadraoAmostra };
 };
 
+
+
 function analitcUmidade(data) {
     let media = calcMedia(data);
     let desvioPadraoAmostra = calcDesvioPadrao(data).toFixed(2);
