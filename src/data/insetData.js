@@ -18,7 +18,7 @@ async function getDataFromThingSpeak(url) {
 };
 
 function fetchEvery15minutes() {
-    const url = `https://api.thingspeak.com/channels/2068822/feeds.json?api_key=O4UO2E3ETQILY3RJ&results=8000`;
+    const url = `https://api.thingspeak.com/channels/2068822/feeds.json?api_key=O4UO2E3ETQILY3RJ&results=1`;
     getDataFromThingSpeak(url)
         .then((item) => {
             // console.log(item);
@@ -39,4 +39,4 @@ function insertDataApi(data) {
 }
 
 fetchEvery15minutes();
-// setInterval(fetchEvery15minutes, 15 * 60 * 1000); 
+setInterval(fetchEvery15minutes, 15 * 60 * 1000); 
