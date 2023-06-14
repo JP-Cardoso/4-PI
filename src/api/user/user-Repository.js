@@ -53,9 +53,9 @@ const login = async (item) => {
     if (!checkPass) {
         console.error('User no existed');
     } else {
-        token = await genToken(result)
+        token = genToken(result)
     }
-    return {result, token};
+    return  {result,token};
 };
 
 module.exports = { save, findAll, getById, updated, remove, login }

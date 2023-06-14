@@ -16,8 +16,8 @@ const comparePass = async (pass, hash) => {
 }
 
 const genToken = (user) => {
-    console.log(user.id);
     const secret = process.env.SECRET;
+    console.log(secret);
     const token = jwt.sign({
         id: user.id
     }, secret)
