@@ -1,5 +1,4 @@
 require('dotenv').config();
-
 module.exports = {
     logging: console.log,
     dialect: process.env.DB_DIALECT, 
@@ -10,5 +9,12 @@ module.exports = {
     define: {
         timestamps: true,
         underscored: true,
-    }
+    },
+    dialectOptions: {
+        ssl: process.env.DB_SSL ? {
+          require: true,
+          rejectUnauthorized: false, // use this if you don't have a CA or self-signed certificate
+          ca:  process.env.DB_SSL,
+        } : null,
+      },
 };
